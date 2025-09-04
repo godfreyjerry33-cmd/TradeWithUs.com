@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Trade With Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-size: 14px;
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #b1236d;
+    }
+
+    .banner {
+      background: url('pic3.jfif') no-repeat center center/cover;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    .banner h1 {
+      font-size: 36px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .container h2 {
+      color: #b1236d;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .contact-info {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    form input, form textarea {
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    form button {
+      background: #b1236d;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #971a5a;
+    }
+
+    .whatsapp {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .whatsapp a {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .whatsapp a:hover {
+      background: #1da851;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777777;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+
+    <img src="trade.png" alt="logo">        <span><strong>MAKE YOUR BUSINESS KNOWN</strong></span>
+    </div>
+
+    <nav>
+      <a href="Home Page.html">Home Page</a>
+      <a href="About us.html">About Us</a>
+      <a href="Businesses.html">Businesses</a>
+      <a href="Contact us.html">Contact Us</a>
+      <a href="New products.html">New Products</a>
+    </nav>
+  </header>
+
+
+  <section class="banner">
+    <h1>Contact Us</h1>
+  </section>
+
+  <div class="container">
+    <h2>We would love to hear from you</h2>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> info@tradewithus.com</p>
+      <p><strong>Phone:</strong> +256 752343900</p>
+      <p><strong>Location:</strong> Kampala, Uganda</p>
+    </div>
+
+    <form action="mailto:info@tradewithus.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Full Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/256752343900" target="_blank">
+        💬 Chat with us on WhatsApp
+      </a>
+    </div>
+  </div>
+
+
+  <footer>
+    &copy; 2025 Trade With Us. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

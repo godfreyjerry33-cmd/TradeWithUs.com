@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trade With Us - Home Page</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; color:#333; background:#f9f9f9; line-height:1.6; overflow-x:hidden; }
+
+header { display:flex; justify-content:space-between; align-items:center; padding:15px 30px; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.05); position:sticky; top:0; z-index:1000; }
+.logo { display:flex; align-items:center; }
+.logo img { height:40px; margin-right:10px; }
+nav a { margin:0 10px; font-size:14px; color:#333; font-weight:bold; text-decoration:none; transition: color 0.3s; }
+nav a:hover, nav a.active { color:#b1236d; }
+
+.banner { background:url('banner.jpg') no-repeat center center/cover; height:320px; display:flex; justify-content:center; align-items:center; text-align:center; color:white; text-shadow:1px 1px 3px rgba(0,0,0,0.6); }
+.banner h1 { font-size:42px; animation: fadeIn 1s ease-in-out; }
+.banner .btn { margin-top:20px; }
+
+.container { max-width:1100px; margin:40px auto; padding:20px; }
+h2 { color:#b1236d; margin-bottom:20px; text-align:center; }
+
+.sections, .products-carousel { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+
+.section-card, .product-card {
+  background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px; text-align:center;
+  opacity:0; transform:translateY(30px); transition: all 0.8s ease-in-out; cursor:pointer;
+}
+.section-card.visible, .product-card.visible { opacity:1; transform:translateY(0); }
+.section-card:hover, .product-card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 12px 25px rgba(0,0,0,0.2); }
+
+.section-card img, .product-card img { width:100%; border-radius:8px; margin-bottom:10px; }
+.section-card h3, .product-card h3 { color:#b1236d; margin-bottom:10px; }
+.section-card p, .product-card p { font-size:14px; margin-bottom:15px; line-height:1.5; }
+.price { font-weight:bold; color:#fc4d08; margin-bottom:10px; font-size:16px; }
+
+.btn { display:inline-block; padding:12px 20px; background:#b1236d; color:white; border-radius:5px; text-decoration:none; font-weight:bold; transition:background 0.3s; }
+.btn:hover { background:#971a5a; }
+
+.carousel-container { position:relative; overflow:hidden; }
+.products-carousel { display:flex; gap:20px; transition:transform 0.5s ease-in-out; }
+.product-card { min-width:250px; flex:0 0 auto; }
+
+#whatsapp-widget { position:fixed; bottom:20px; right:20px; width:60px; height:60px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:1000; box-shadow:0 4px 6px rgba(0,0,0,0.3); }
+#whatsapp-widget img { width:35px; height:35px; }
+
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:2000; }
+.modal-content { background:#fff; border-radius:10px; padding:20px; width:90%; max-width:500px; position:relative; text-align:center; }
+.modal-content img { width:100%; border-radius:8px; margin-bottom:10px; }
+.close { position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer; color:#333; }
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+footer {
+  background:#333;
+  color:#fff;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+
+@media(max-width:768px){
+  header{flex-direction:column; align-items:flex-start;}
+  nav{margin-top:10px;}
+  .banner h1{font-size:32px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="trade.png" alt="logo">
+    <span><strong>MAKE YOUR BUSINESS KNOWN</strong></span>
+  </div>
+  <nav>
+    <a href="Home Page.html" class="active">Home Page</a>
+    <a href="About us.html">About Us</a>
+    <a href="Businesses.html">Businesses</a>
+    <a href="New products.html">New Products</a>
+    <a href="Contact us.html">Contact Us</a>
+  </nav>
+</header>
+
+<section class="banner">
+  <div>
+    <h1>Grow Your Business With Us</h1>
+    <a href="Businesses.html" class="btn">Get Started</a>
+  </div>
+</section>
+
+<div class="container">
+  <h2>Explore Our Website</h2>
+  <div class="sections">
+    <div class="section-card">
+      <img src="about us.png" alt="About Us">
+      <h3>About Us</h3>
+      <p>Learn more about our mission and how we help businesses grow.</p>
+      <a href="About us.html" class="btn">Learn More</a>
+    </div>
+    <div class="section-card">
+      <img src="your market.jpeg" alt="Businesses">
+      <h3>Businesses</h3>
+      <p>Discover the various businesses we partner with and support.</p>
+      <a href="Businesses.html" class="btn">View Businesses</a>
+    </div>
+    <div class="section-card">
+      <img src="all products.jpeg" alt="New Products">
+      <h3>New Products</h3>
+      <p>Check out the latest products available for sale on our platform.</p>
+      <a href="New products.html" class="btn">Explore Products</a>
+    </div>
+    <div class="section-card">
+      <img src="contact us.png" alt="Contact Us">
+      <h3>Contact Us</h3>
+      <p>Get in touch with us directly through email, phone, or WhatsApp.</p>
+      <a href="Contact us.html" class="btn">Contact Now</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Featured Products</h2>
+  <div class="carousel-container">
+    <div class="products-carousel">
+      <div class="product-card" data-title="Organic Honey" data-price="" data-description="Pure organic honey sourced from local farmers." data-image="honey.jpg">
+        <img src="honey.jpg" alt="Organic Honey"><h3>Organic Honey</h3><div class="price">UGX.15,000</div>
+      </div>
+      <div class="product-card" data-title="Smartphone X10" data-price="UGX. 400,000" data-description="Latest generation smartphone with high-speed performance." data-image="product2.jpg">
+        <img src="phones.webp" alt="Smartphone X10"><h3>Smartphone X10</h3><div class="price">UGX. 400,000</div>
+      </div>
+      <div class="product-card" data-title="Designer Shoes" data-price="$80" data-description="Stylish and comfortable footwear for all occasions." data-image="product3.jpg">
+        <img src="product3.jpg" alt="Designer Shoes"><h3>Designer Shoes</h3><div class="price">$80</div>
+      </div>
+      <div class="product-card" data-title="Fresh Coffee Beans" data-price="$25" data-description="Rich aroma and great taste. Directly from the farm to your cup." data-image="product4.jpg">
+        <img src="product4.jpg" alt="Fresh Coffee Beans"><h3>Fresh Coffee Beans</h3><div class="price">$25</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modal-img" src="" alt="Product">
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <div id="modal-price" class="price"></div>
+    <a id="modal-btn" href="#" class="btn" target="_blank">Buy Now</a>
+  </div>
+</div>
+
+<div id="whatsapp-widget" onclick="window.open('https://wa.me/256752343900','_blank')">
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Chat">
+</div>
+
+<footer>&copy; 2025 Trade With Us. All Rights Reserved.</footer>
+
+<script>
+const cards = document.querySelectorAll('.section-card, .product-card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+},{ threshold:0.2 });
+cards.forEach(card => observer.observe(card));
+
+const carousel = document.querySelector('.products-carousel');
+let scrollAmount = 0;
+function autoScroll(){
+  scrollAmount+=1;
+  if(scrollAmount>=carousel.scrollWidth-carousel.clientWidth){ scrollAmount=0; }
+  carousel.scrollTo({left:scrollAmount, behavior:'smooth'});
+}
+setInterval(autoScroll, 60);
+
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const modalPrice = document.getElementById('modal-price');
+const modalBtn = document.getElementById('modal-btn');
+const closeBtn = document.querySelector('.close');
+
+document.querySelectorAll('.product-card').forEach(card => {
+  card.addEventListener('click', () => {
+    modal.style.display='flex';
+    modalImg.src = card.dataset.image;
+    modalTitle.textContent = card.dataset.title;
+    modalDesc.textContent = card.dataset.description;
+    modalPrice.textContent = card.dataset.price;
+    modalBtn.href = `https://wa.me/256752343900?text=Hello%2C%20I%20am%20interested%20in%20${encodeURIComponent(card.dataset.title)}`;
+  });
+});
+
+closeBtn.addEventListener('click', () => { modal.style.display='none'; });
+window.addEventListener('click', e => { if(e.target==modal) modal.style.display='none'; });
+</script>
+
+</body>
+</html>

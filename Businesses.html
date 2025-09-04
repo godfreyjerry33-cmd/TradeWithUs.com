@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Businesses - Trade With Us</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background:#f9f9f9;color:#333;line-height:1.6;}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
+.logo{display:flex;align-items:center;}
+.logo img{height:40px;margin-right:10px;}
+nav a{margin:0 10px;font-size:14px;color:#333;font-weight:bold;text-decoration:none;transition:color 0.3s;}
+nav a:hover{color:#b1236d;}
+.banner{background:url('pic5.jfif') no-repeat center center/cover;height:200px;display:flex;justify-content:center;align-items:center;color:white;text-shadow:1px 1px 3px rgba(0,0,0,0.6);}
+.banner h1{font-size:36px;text-align:center;}
+.container{max-width:1200px;margin:40px auto;padding:20px;text-align:center;}
+.search-box{margin-bottom:20px;}
+.search-box input{width:100%;max-width:400px;padding:12px;border:2px solid #b1236d;border-radius:8px;font-size:1rem;}
+.filters{margin-bottom:30px;}
+.filters .btn{margin:0 5px 10px;padding:12px 20px;background:#b1236d;color:white;border-radius:5px;text-decoration:none;font-weight:bold;cursor:pointer;transition:background 0.3s;display:inline-flex;align-items:center;}
+.filters .btn:hover{background:#971a5a;}
+.filters .btn.active{background:#f1c40f;color:#000;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);opacity:0;transform:translateY(20px);transition:opacity 0.5s, transform 0.5s;display:none;}
+.card.show{opacity:1;transform:translateY(0);display:block;}
+.card img,.card video{width:100%;display:block;border-radius:8px;margin-bottom:10px;}
+.card-content{padding:15px;}
+.card-content h3{color:#b1236d;margin-bottom:10px;}
+.card-content p{font-size:0.95rem;margin-bottom:10px;}
+.load-more{display:block;margin:30px auto 0;padding:12px 25px;background:#b1236d;color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:1rem;transition:background 0.3s;}
+.load-more:hover{background:#971a5a;}
+footer{text-align:center;font-size:12px;color:#777;padding:20px 0;margin-top:40px;background:#f1f1f1;}
+@media(max-width:768px){header{flex-direction:column;align-items:flex-start;}nav{margin-top:10px;}.banner h1{font-size:28px;}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">
+<img src="trade.png" alt="logo">
+<span><strong>MAKE YOUR BUSINESS KNOWN</strong></span>
+</div>
+<nav>
+ <a href="Home Page.html">Home Page</a>
+ <a href="About us.html">About Us</a>
+ <a href="Businesses.html">Businesses</a>
+ <a href="la marioz beauty salon.html">La Marioz Beauty Salon</a>
+ <a href="Contact us.html">Contact Us</a>
+ <a href="New products.html">New Products</a>
+</nav>
+</header>
+
+<section class="banner">
+<h1>Our Businesses</h1>
+</section>
+
+<div class="container">
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search businesses...">
+</div>
+
+<div class="filters">
+<button class="btn active" data-category="all">All</button>
+<button class="btn" data-category="agriculture">Agriculture</button>
+<button class="btn" data-category="technology">Technology</button>
+<button class="btn" data-category="fashion">Fashion</button>
+<button class="btn" data-category="food">Food & Beverages</button>
+</div>
+
+<section class="grid" id="businessGrid"></section>
+<button class="load-more" id="loadMoreBtn">Load More</button>
+</div>
+
+<footer>&copy; 2025 Trade With Us. All Rights Reserved.</footer>
+
+<script>
+const businessData = [
+  {category:'agriculture', title:'Fresh Fruits Co.', img:'fruits.jpg', desc:'Seasonal and exotic fruits.', video:'', link:'fruits.html'},
+  {category:'agriculture', title:'Green Veggies Ltd.', img:'vegetables.webp', desc:'Organic vegetables delivered fresh.', video:'', link:'veggies.html'},
+  {category:'technology', title:'Smart phone latest', img:'phones.jpg', desc:'Latest smartphone with cutting-edge features.', video:'phone.mp4', link:'smartphone.html'},
+  {category:'technology', title:'AI Chatbot', img:'chat bot.png', desc:'Automate customer support efficiently.', video:'', link:'chatbot.html'},
+  {category:'fashion', title:'Summer Dress', img:'summer.jpg', desc:'Light and colorful summer dresses.', video:'', link:'summer.html'},
+  {category:'fashion', title:'La marioz beauty salon', video:'martha.mp4', desc:'Your make upand hair Salon in kagadi town.', vieo :'martha.mp4', link:'La marioz beauty Salon.html'},
+   {category:'fashion', title:'Summer Dress', img:'summer.jpg', desc:'Light and colorful summer dresses.', video:'', link:'summer.html'},
+  {category:'fashion', title:'Running Shoes', img:'running shoes.jpeg', desc:'Comfortable and stylish running shoes.', video:'', link:'shoes.html'},
+  {category:'food', title:'Gourmet Beverages', img:'beverages.jpeg', desc:'Fresh drinks for all occasions.', video:'', link:'beverages.html'},
+  {category:'food', title:'Organic Snacks', img:'snacks.jpeg', desc:'Healthy and tasty snacks.', video:'', link:'snacks.html'}
+];
+
+let cardsPerLoad = 4, currentIndex = 0;
+
+function loadCards(){
+ const grid = document.getElementById('businessGrid');
+ const slice = businessData.slice(currentIndex,currentIndex+cardsPerLoad);
+ slice.forEach((item,i)=>{
+  const card = document.createElement('div');
+  card.className = `card ${item.category}`;
+  card.innerHTML = `
+    <a href="${item.link}" style="text-decoration:none;color:inherit;">
+      <img src="${item.img}" alt="${item.title}">
+      <div class="card-content">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        ${item.video?`<video controls><source src="${item.video}" type="video/mp4"></video>`:''}
+      </div>
+    </a>
+  `;
+  grid.appendChild(card);
+  setTimeout(()=>card.classList.add('show'), i*150);
+ });
+ currentIndex += cardsPerLoad;
+ if(currentIndex >= businessData.length) document.getElementById('loadMoreBtn').style.display='none';
+}
+
+document.getElementById('loadMoreBtn').addEventListener('click', loadCards);
+window.addEventListener('load', loadCards);
+
+document.querySelectorAll('.filters .btn').forEach(btn=>{
+ btn.addEventListener('click', ()=>{
+   document.querySelectorAll('.filters .btn').forEach(b=>b.classList.remove('active'));
+   btn.classList.add('active');
+   filterSelection(btn.dataset.category);
+ });
+});
+
+function filterSelection(category){
+ const cards = document.getElementsByClassName('card');
+ for(let i=0;i<cards.length;i++){
+   if(category==='all' || cards[i].classList.contains(category)){
+     cards[i].classList.add('show');
+   }else{
+     cards[i].classList.remove('show');
+   }
+ }
+}
+
+document.getElementById('searchInput').addEventListener('keyup', function(){
+ let filter = this.value.toLowerCase();
+ const cards = document.querySelectorAll('.card');
+ cards.forEach(card=>{
+   let text = card.innerText.toLowerCase();
+   if(text.includes(filter)){
+     card.classList.add('show');
+   }else{
+     card.classList.remove('show');
+   }
+ });
+});
+</script>
+
+</body>
+</html>
